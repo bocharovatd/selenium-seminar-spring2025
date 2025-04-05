@@ -1,13 +1,13 @@
 from selenium.webdriver.common.by import By
 
-from ui.locators import basic_locators
 from ui.pages.base_page import BasePage
 from ui.pages.people_page import PeoplePage
 from ui.pages.schedule_page import SchedulePage
+from ui.locators.basic_locators import FeedPageLocators
 
 
 class FeedPage(BasePage):
-    locators = basic_locators.FeedPageLocators()
+    locators = FeedPageLocators()
     url = 'https://education.vk.company/feed/'
 
     def go_to_people_page(self):

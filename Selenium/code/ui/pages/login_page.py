@@ -1,6 +1,7 @@
 from ui.pages.base_page import BasePage
 from ui.locators.basic_locators import LoginPageLocators
 
+
 class LoginPage(BasePage):
     locators = LoginPageLocators()
     url = 'https://education.vk.company/?#auth'

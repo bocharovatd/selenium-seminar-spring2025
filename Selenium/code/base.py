@@ -1,11 +1,9 @@
 from contextlib import contextmanager
-
 import pytest
 from _pytest.fixtures import FixtureRequest
+
 from ui.pages.base_page import BasePage
 from ui.pages.feed_page import FeedPage
-
-CLICK_RETRY = 3
 
 
 class BaseCase:

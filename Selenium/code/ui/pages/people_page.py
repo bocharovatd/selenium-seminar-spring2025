@@ -1,7 +1,8 @@
-# from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.support import expected_conditions as EC
+
 from ui.pages.base_page import BasePage
 from ui.locators.basic_locators import PeoplePageLocators
-from selenium.webdriver.support import expected_conditions as EC
+
 
 class PeoplePage(BasePage):
     locators = PeoplePageLocators()

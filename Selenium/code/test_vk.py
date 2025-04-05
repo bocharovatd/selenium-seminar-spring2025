@@ -1,6 +1,6 @@
-import pytest
 from ui.fixtures import credentials
 from base import BaseCase
+
 
 class TestLogin(BaseCase):
     authorize = False

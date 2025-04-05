@@ -1,7 +1,9 @@
+from selenium.webdriver.support import expected_conditions as EC
+
 from ui.pages.base_page import BasePage
 from ui.pages.lesson_page import LessonPage
 from ui.locators.basic_locators import SchedulePageLocators
-from selenium.webdriver.support import expected_conditions as EC
+
 
 class SchedulePage(BasePage):
     locators = SchedulePageLocators()

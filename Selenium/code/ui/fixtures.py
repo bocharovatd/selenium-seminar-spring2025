@@ -1,13 +1,14 @@
+import os
 import pytest
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
-from ui.pages.base_page import BasePage
+
 from ui.pages.feed_page import FeedPage
 from ui.pages.login_page import LoginPage
-from ui.pages.people_page import PeoplePage
 
 
 @pytest.fixture()
@@ -62,6 +63,7 @@ def all_drivers(config, request):
     yield browser
     browser.quit()
 
+
 @pytest.fixture
 def feed_page(driver):
     return FeedPage(driver=driver)
@@ -71,9 +73,10 @@ def feed_page(driver):
 def login_page(driver):
     return LoginPage(driver=driver)
 
+
 @pytest.fixture(scope='session')
 def credentials():
     return {
-        'username': 'login',
-        'password': 'password'
+        'username': os.getenv('LOGIN'),
+        'password': os.getenv('PASSWORD')
     }

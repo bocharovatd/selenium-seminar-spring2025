@@ -8,6 +8,7 @@ class BasePageLocators:
     START_SHELL = (By.ID, 'start-shell')
     PYTHON_CONSOLE = (By.ID, 'hterm:row-nodes')
 
+
 class MainPageLocators(BasePageLocators):
     COMPREHENSIONS = (
         By.XPATH,
@@ -28,12 +29,14 @@ class LoginPageLocators:
     PASSWORD_FIELD = (By.CSS_SELECTOR, 'input[type="password"]')
     LOGIN_BUTTON = (By.CLASS_NAME, 'gtm-login-btn')
 
+
 class PeoplePageLocators:
     INPUT_TEXT = (By.CLASS_NAME, 'input-text')
     INPUT_SUBMIT = (By.CLASS_NAME, 'input-submit')
     USER_CARDS = (By.CSS_SELECTOR, "td.cell-name")
     FULL_NAME = (By.CSS_SELECTOR, "p.realname")
     USER_DESCRIPTION = (By.CLASS_NAME, "user-desc")
+
 
 class SchedulePageLocators:
     WHOLE_SEMESTER_BUTTON = (By.XPATH, "//a[text()='Весь семестр']")
@@ -43,6 +46,7 @@ class SchedulePageLocators:
     KIND_ELEM = lambda self, kind: (By.XPATH, f"//div[@class='option']/span[text()='{kind}']")
     LESSON_HREF_BY_DATE = lambda self, date: (By.XPATH, f"//tr[.//nobr[contains(.//text(), '{date}')]]//a[@class='schedule-show-info']")
     SCHEDULE_TABLE_ROWS = (By.CSS_SELECTOR, 'tr.schedule-timetable__item')
+
 
 class LessonPageLocators:
     LESSON_TITLE = (By.XPATH, "//h1[contains(@class, 'styleslesson__SLessonHeaderTitle')]")
