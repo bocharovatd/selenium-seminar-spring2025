@@ -1,5 +1,3 @@
-from selenium.webdriver.common.by import By
-
 from ui.pages.base_page import BasePage
 from ui.pages.people_page import PeoplePage
 from ui.pages.schedule_page import SchedulePage
