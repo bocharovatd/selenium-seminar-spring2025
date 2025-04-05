@@ -77,6 +77,6 @@ def login_page(driver):
 @pytest.fixture(scope='session')
 def credentials():
     return {
-        'username': os.getenv('LOGIN'),
+        'email': os.getenv('EMAIL'),
         'password': os.getenv('PASSWORD')
     }

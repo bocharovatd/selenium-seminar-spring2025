@@ -31,8 +31,8 @@ class LoginPageLocators:
 
 
 class PeoplePageLocators:
-    INPUT_TEXT = (By.CLASS_NAME, 'input-text')
-    INPUT_SUBMIT = (By.CLASS_NAME, 'input-submit')
+    INPUT_TEXT = (By.CSS_SELECTOR, "input.input-text[name='q']")
+    INPUT_SUBMIT = (By.CSS_SELECTOR, "input.input-submit[value='Найти']")
     USER_CARDS = (By.CSS_SELECTOR, "td.cell-name")
     FULL_NAME = (By.CSS_SELECTOR, "p.realname")
     USER_DESCRIPTION = (By.CLASS_NAME, "user-desc")

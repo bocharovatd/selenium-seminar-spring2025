@@ -21,5 +21,5 @@ class BaseCase:
             credentials = request.getfixturevalue("credentials")
             login_page = self.login_page
             login_page.open()
-            login_page.login(credentials['username'], credentials['password'])
+            login_page.login(credentials['email'], credentials['password'])
         
