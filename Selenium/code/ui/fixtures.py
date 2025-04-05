@@ -1,10 +1,13 @@
 import pytest
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from ui.pages.base_page import BasePage
-from ui.pages.main_page import MainPage
+from ui.pages.feed_page import FeedPage
+from ui.pages.login_page import LoginPage
+from ui.pages.people_page import PeoplePage
 
 
 @pytest.fixture()
@@ -27,9 +30,11 @@ def driver(config):
             desired_capabilities=capabilities
         )
     elif browser == 'chrome':
-        driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
+        service = Service(ChromeDriverManager().install())
+        driver = webdriver.Chrome(service=service)
     elif browser == 'firefox':
-        driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+        service = FirefoxService(GeckoDriverManager().install())
+        driver = webdriver.Firefox(service=service)
     else:
         raise RuntimeError(f'Unsupported browser: "{browser}"')
     driver.get(url)
@@ -57,12 +62,18 @@ def all_drivers(config, request):
     yield browser
     browser.quit()
 
+@pytest.fixture
+def feed_page(driver):
+    return FeedPage(driver=driver)
+
 
 @pytest.fixture
-def base_page(driver):
-    return BasePage(driver=driver)
+def login_page(driver):
+    return LoginPage(driver=driver)
 
-
-@pytest.fixture
-def main_page(driver):
-    return MainPage(driver=driver)
+@pytest.fixture(scope='session')
+def credentials():
+    return {
+        'username': 'login',
+        'password': 'password'
+    }
